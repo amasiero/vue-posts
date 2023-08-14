@@ -1,9 +1,10 @@
-import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import { createApp } from 'vue';
+
 import App from './App.vue';
 import { router } from './router';
-import { useUsers } from './stores/users';
 import { usePosts } from './stores/posts';
+import { useUsers } from './stores/users';
 
 const app = createApp(App);
 app.use(createPinia());

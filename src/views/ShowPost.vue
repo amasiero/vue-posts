@@ -1,26 +1,27 @@
 <script setup lang="ts">
-import { RouterLink, useRoute } from 'vue-router';
-import { usePosts } from '../stores/posts';
-import { useUsers } from '../stores/users';
-import { computed } from 'vue';
+  import { computed } from 'vue';
+  import { RouterLink, useRoute } from 'vue-router';
 
-const route = useRoute();
-const postsStore = usePosts();
-const usersStore = useUsers();
+  import { usePosts } from '../stores/posts';
+  import { useUsers } from '../stores/users';
 
-const id = route.params.id as string;
-const post = postsStore.all.get(id);
+  const route = useRoute();
+  const postsStore = usePosts();
+  const usersStore = useUsers();
 
-if (!post) {
-  throw Error(`Post with id ${id} not found`);
-}
+  const id = route.params.id as string;
+  const post = postsStore.all.get(id);
 
-const canEdit = computed(() => {
-  if (!usersStore.currentUserId) {
-    return false;
+  if (!post) {
+    throw Error(`Post with id ${id} not found`);
   }
-  return usersStore.currentUserId === post.authorId;
-});
+
+  const canEdit = computed(() => {
+    if (!usersStore.currentUserId) {
+      return false;
+    }
+    return usersStore.currentUserId === post.authorId;
+  });
 </script>
 
 <template>
@@ -29,7 +30,7 @@ const canEdit = computed(() => {
     <div class="column is-two-thirds">
       <RouterLink v-if="canEdit" :to="`/posts/${post.id}/edit`" class="is-link button is-rounded">Edit Post</RouterLink>
       <h1>{{ post.title }}</h1>
-      <div v-html="post.html"/>
+      <div v-html="post.html" />
     </div>
     <div class="column"></div>
   </div>

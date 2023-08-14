@@ -1,22 +1,22 @@
 <script setup lang="ts">
-//@ts-ignore
-import { DateTime } from 'luxon';
-import TimelineItem from './TimelineItem.vue';
-import { usePosts } from '../stores/posts';
-import { periods } from '../constants';
+  //@ts-ignore
+  import { DateTime } from 'luxon';
 
-const postStore = usePosts();
-await postStore.fetchPosts();
+  import { periods } from '../constants';
+  import { usePosts } from '../stores/posts';
+  import TimelineItem from './TimelineItem.vue';
 
+  const postStore = usePosts();
+  await postStore.fetchPosts();
 </script>
 
 <template>
   <nav class="is-primary panel">
     <span class="panel-tabs">
-      <a 
-        v-for="period in periods" 
-        :key="period" 
-        :class="{'is-active': period === postStore.selectedPeriod}"
+      <a
+        v-for="period in periods"
+        :key="period"
+        :class="{ 'is-active': period === postStore.selectedPeriod }"
         @click="postStore.setSelectedPeriod(period)"
       >
         {{ period }}

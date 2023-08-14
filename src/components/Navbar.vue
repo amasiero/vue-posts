@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { useModal } from "../composables/modal";
-import { useRouter } from "vue-router";
-import { useUsers } from "../stores/users";
+  import { useRouter } from 'vue-router';
 
-const modal = useModal();
-const usersStore = useUsers();
-const router = useRouter();
+  import { useModal } from '../composables/modal';
+  import { useUsers } from '../stores/users';
 
-const logout = async () => {
-  await usersStore.logout();
-  router.push({ path: "/"});
-}
+  const modal = useModal();
+  const usersStore = useUsers();
+  const router = useRouter();
 
+  const logout = async () => {
+    await usersStore.logout();
+    router.push({ path: '/' });
+  };
 </script>
 
 <template>

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
-import { TimelinePost } from '../posts';
+  import { RouterLink } from 'vue-router';
 
-defineProps<{
-  post: TimelinePost
-}>()
+  import { TimelinePost } from '../posts';
+
+  defineProps<{
+    post: TimelinePost;
+  }>();
 </script>
 
 <template>

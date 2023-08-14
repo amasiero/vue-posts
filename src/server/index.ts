@@ -1,8 +1,9 @@
-import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express, { Request, Response } from 'express';
 import jsonwebtoken from 'jsonwebtoken';
+
 import { Post, thisMonth, thisWeek, today } from '../posts';
 import { NewUser, User } from '../users';
 

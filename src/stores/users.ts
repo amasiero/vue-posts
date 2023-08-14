@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+
 import { NewUser } from '../users';
 
 interface UsersState {

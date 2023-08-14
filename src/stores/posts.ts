@@ -1,7 +1,8 @@
-import { defineStore } from 'pinia';
-import { Post, TimelinePost } from '../posts';
-import { Period } from '../constants';
 import { DateTime } from 'luxon';
+import { defineStore } from 'pinia';
+
+import { Period } from '../constants';
+import { Post, TimelinePost } from '../posts';
 
 interface PostState {
   ids: string[];
