@@ -13,6 +13,10 @@ describe('Navbar', () => {
   let router: Router;
 
   beforeEach(() => {
+    const el = document.createElement('div');
+    el.id = 'modal';
+    document.body.appendChild(el);
+
     pinia = createPinia();
     setActivePinia(pinia);
 
@@ -23,10 +27,6 @@ describe('Navbar', () => {
   });
 
   it('renders the navbar with sign-in and sign-up buttons when user is not authenticated', () => {
-    const el = document.createElement('div');
-    el.id = 'modal';
-    document.body.appendChild(el);
-
     const wrapper = mount(Navbar, {
       global: {
         plugins: [pinia, router],
@@ -38,10 +38,6 @@ describe('Navbar', () => {
   });
 
   it('renders the navbar with new post and logout buttons when user is authenticated', async () => {
-    const el = document.createElement('div');
-    el.id = 'modal';
-    document.body.appendChild(el);
-
     const usersStore = useUsers();
     usersStore.currentUserId = '1';
 
