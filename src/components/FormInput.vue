@@ -23,6 +23,6 @@
     <div class="control">
       <input :type="type" :id="name" class="input" :value="modelValue" @input="handleInput" />
     </div>
-    <p class="is-danger help" :v-if="!status.valid">{{ status.message }}</p>
+    <p class="is-danger help" v-if="!status.valid">{{ status.message }}</p>
   </div>
 </template>

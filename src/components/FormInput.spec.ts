@@ -6,7 +6,7 @@ import FormInput from './FormInput.vue';
 describe('FormInput', () => {
   it('render some errors', () => {
     const wrapper = mount(FormInput, {
-      propsData: {
+      props: {
         name: 'foo',
         modelValue: 'bar',
         status: {
@@ -16,11 +16,11 @@ describe('FormInput', () => {
         type: 'text',
       },
     });
-    console.log(wrapper.html());
-    expect(wrapper.find('.is-danger')).toBeTruthy();
+
+    expect(wrapper.find('.is-danger').exists()).toBe(true);
   });
 
-  it('render correctly', () => {
+  it('render no errors', () => {
     const wrapper = mount(FormInput, {
       props: {
         name: 'foo',
@@ -32,7 +32,7 @@ describe('FormInput', () => {
         type: 'text',
       },
     });
-    console.log(wrapper.html());
-    expect(wrapper.find('.is-danger')).toBeFalsy();
+
+    expect(wrapper.find('.is-danger').exists()).toBe(false);
   });
 });

@@ -1,7 +1,4 @@
 <script setup lang="ts">
-  //@ts-ignore
-  import { DateTime } from 'luxon';
-
   import { periods } from '../constants';
   import { usePosts } from '../stores/posts';
   import TimelineItem from './TimelineItem.vue';
