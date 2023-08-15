@@ -18,12 +18,12 @@
   <div class="navbar">
     <div class="navbar-end">
       <div v-if="usersStore.currentUserId" class="buttons">
-        <router-link to="/posts/new" class="button is-primary">New Post</router-link>
-        <button class="button" @click="logout()">Log out</button>
+        <router-link data-test-id="new-post" to="/posts/new" class="button is-primary">New Post</router-link>
+        <button data-test-id="log-out" class="button" @click="logout()">Log out</button>
       </div>
       <div v-else class="buttons">
-        <button class="button is-primary" @click="modal.showModal('signUp')">Sign Up</button>
-        <button class="button" @click="modal.showModal('signIn')">Sign In</button>
+        <button data-test-id="sign-up" class="button is-primary" @click="modal.showModal('signUp')">Sign Up</button>
+        <button data-test-id="sign-in" class="button" @click="modal.showModal('signIn')">Sign In</button>
       </div>
     </div>
   </div>
