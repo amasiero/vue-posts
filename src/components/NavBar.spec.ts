@@ -1,24 +1,31 @@
 import { mount } from '@vue/test-utils';
-import { createPinia, setActivePinia } from 'pinia';
-import { describe, expect, it } from 'vitest';
+import { Pinia, createPinia, setActivePinia } from 'pinia';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { computed, defineComponent, ref } from 'vue';
-import { createMemoryHistory, createRouter } from 'vue-router';
+import { Router, createMemoryHistory, createRouter } from 'vue-router';
 
 import { routes } from '../router';
 import { useUsers } from '../stores/users';
 import Navbar from './Navbar.vue';
 
 describe('Navbar', () => {
+  let pinia: Pinia;
+  let router: Router;
+
+  beforeEach(() => {
+    pinia = createPinia();
+    setActivePinia(pinia);
+
+    router = createRouter({
+      history: createMemoryHistory(),
+      routes,
+    });
+  });
+
   it('renders the navbar with sign-in and sign-up buttons when user is not authenticated', () => {
     const el = document.createElement('div');
     el.id = 'modal';
     document.body.appendChild(el);
-
-    const pinia = createPinia();
-    const router = createRouter({
-      history: createMemoryHistory(),
-      routes,
-    });
 
     const wrapper = mount(Navbar, {
       global: {
@@ -35,16 +42,8 @@ describe('Navbar', () => {
     el.id = 'modal';
     document.body.appendChild(el);
 
-    const pinia = createPinia();
-    setActivePinia(pinia);
-
     const usersStore = useUsers();
     usersStore.currentUserId = '1';
-
-    const router = createRouter({
-      history: createMemoryHistory(),
-      routes,
-    });
 
     const wrapper = mount(Navbar, {
       global: {
