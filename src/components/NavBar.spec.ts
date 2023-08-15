@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { Pinia, createPinia, setActivePinia } from 'pinia';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { computed, defineComponent, ref } from 'vue';
 import { Router, createMemoryHistory, createRouter } from 'vue-router';
 
 import { routes } from '../router';
