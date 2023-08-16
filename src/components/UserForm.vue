@@ -45,8 +45,8 @@
 
 <template>
   <form class="form" @submit.prevent="handleSubmit">
-    <FormInput name="Username" v-model="username" :status="usernameStatus" type="text" />
-    <FormInput name="Password" v-model="password" :status="passwordStatus" type="password" />
+    <FormInput data-test-id="username" name="Username" v-model="username" :status="usernameStatus" type="text" />
+    <FormInput data-test-id="password" name="Password" v-model="password" :status="passwordStatus" type="password" />
     <div v-if="error" class="is-danger help mb">
       {{ error }}
     </div>
