@@ -6,7 +6,7 @@ import { Router, createMemoryHistory, createRouter } from 'vue-router';
 import { routes } from '../router';
 import UserForm from './UserForm.vue';
 
-describe('Navbar', () => {
+describe('UserForm', () => {
   let pinia: Pinia;
   let router: Router;
 
