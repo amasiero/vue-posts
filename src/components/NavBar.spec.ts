@@ -59,4 +59,16 @@ describe('Navbar', () => {
     expect(wrapper.find('[data-test-id="sign-up"]').exists()).toBe(true);
     expect(wrapper.find('[data-test-id="sign-in"]').exists()).toBe(true);
   });
+
+  it('renders the signin-form into the modal using teleport', async () => {
+    const wrapper = mount(Navbar, {
+      global: {
+        plugins: [pinia, router],
+      },
+    });
+
+    await wrapper.find('[data-test-id="sign-in"]').trigger('click');
+
+    expect(document.body.querySelector('[data-test-id="signin-form"]')).toBeTruthy();
+  });
 });

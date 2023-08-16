@@ -30,5 +30,5 @@
 </script>
 
 <template>
-  <UserForm @submit="handleSignin" :error="error" />
+  <UserForm data-test-id="signin-form" @submit="handleSignin" :error="error" />
 </template>
